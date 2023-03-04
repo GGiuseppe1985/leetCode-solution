@@ -1,0 +1,14 @@
+class Solution {
+    public int countConsistentStrings(String allowed, String[] words) {
+        int notAllowed = 0;
+        for(String word: words){
+            for(char letter: word.toCharArray()){
+                if(!allowed.contains(letter + "")){
+                   notAllowed++; 
+                   break;
+                }
+            }
+        }
+        return words.length - notAllowed;
+    }
+}
