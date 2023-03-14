@@ -1,0 +1,17 @@
+class Solution {
+    public int[] diStringMatch(String s) {
+        int[] result = new int[s.length() + 1];
+        int ho = 0;
+        int hi = s.length();
+        int i = 0;
+        for(i = 0; i < s.length(); i++){
+            if(s.charAt(i) == 'I'){
+                result[i] = ho++;
+            } else {
+                result[i] = hi--;
+            }
+        }
+        result[i] = hi;
+        return result;
+    }
+}
