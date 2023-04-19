@@ -1,0 +1,15 @@
+class Solution {
+    public int countHillValley(int[] nums) {
+        int count = 0;
+        int neigh = nums[0];
+        for(int i = 1; i < nums.length-1; i++){
+            if(neigh  < nums[i] && nums[i+1] < nums[i])
+                count++;
+            if(neigh  > nums[i] && nums[i+1] > nums[i])
+                count++;
+            if(nums[i] != nums[i+1])
+                neigh  = nums[i];
+        }
+        return count;
+    }
+}
