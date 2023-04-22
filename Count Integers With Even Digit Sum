@@ -1,0 +1,16 @@
+class Solution {
+    public int countEven(int num) {
+      int sum = 0;
+      int count = 0;
+      for(int i = 1; i <= num; i++){
+          int check = sum(i);
+          if(check % 2 == 0){
+              count++;
+          }
+      } 
+      return count; 
+    }
+    public static int sum(int k){
+        return k == 0 ? 0 : k %10 + sum(k/10);
+    }
+}
