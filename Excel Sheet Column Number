@@ -1,0 +1,9 @@
+class Solution {
+    public int titleToNumber(String columnTitle) {
+        int columnN = 0;
+        for(int i = 0; i < columnTitle.length(); i++){
+            columnN = columnN  *26 + columnTitle.charAt(i) -64;
+        }
+        return columnN;
+    }
+}
