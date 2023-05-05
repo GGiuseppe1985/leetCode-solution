@@ -1,0 +1,16 @@
+class Solution {
+    public int[] corpFlightBookings(int[][] bookings, int n) {
+        int[] res = new int[n];
+        for(int[] bik : bookings){
+            int start = bik[0] - 1;
+            int end = bik[1];
+            int val = bik[2];
+            for(int i = start; i < end; i++){
+                res[i] += val;
+            }
+        }
+        return res;
+
+    }
+
+}
