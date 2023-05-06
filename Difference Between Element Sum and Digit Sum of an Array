@@ -1,0 +1,14 @@
+class Solution {
+    public int differenceOfSum(int[] nums) {
+        int tele = 0;
+        int tdigit = 0;
+        for(int num: nums){
+            tele += num;
+            while(num > 0){
+                tdigit += num %10;
+                num /= 10;
+            }
+        }
+        return Math.abs(tele - tdigit);
+    }
+}
