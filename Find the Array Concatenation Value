@@ -1,0 +1,25 @@
+class Solution {
+    public long findTheArrayConcVal(int[] nums) {
+        int i=0,j=nums.length-1;
+        long sum=0;
+        while(i<=j)
+        {
+            if(i==j)
+            {
+            sum+=nums[i];
+            i++;j--;
+            }
+            else
+            {
+            String a1=Integer.toString(nums[i]);
+            String a2=Integer.toString(nums[j]);
+            i++;j--;
+                
+                String a3=a1+a2;
+                
+                sum+=Integer.parseInt(a3);
+            }
+        }
+        return sum;
+    }
+}
