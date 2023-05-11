@@ -1,0 +1,27 @@
+class MapSum {
+    Map<String,Integer> hp=null;
+    public MapSum() {
+        this.hp=new HashMap<String,Integer>();
+    }
+    
+    public void insert(String key, int val) {
+         hp.put(key,val);
+    }
+    
+    public int sum(String prefix) {
+        Set<String> hs=hp.keySet();
+        int count=0;
+        for(String s:hs){
+            if(s.startsWith(prefix)) count+=hp.get(s);
+        }
+        return count;
+    }
+}    
+
+
+/**
+ * Your MapSum object will be instantiated and called as such:
+ * MapSum obj = new MapSum();
+ * obj.insert(key,val);
+ * int param_2 = obj.sum(prefix);
+ */
