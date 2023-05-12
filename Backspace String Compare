@@ -1,0 +1,17 @@
+class Solution {
+    public boolean backspaceCompare(String s, String t) {
+        return backspaced(s).equals(backspaced(t));
+    }
+    public String backspaced(String str){
+        Stack<Character> hs = new Stack<>();
+        for(char c : str.toCharArray()){
+            if(c != '#'){
+                hs.push(c);
+            }else if(!hs.isEmpty()){
+                hs.pop();
+            }
+    }
+    return hs.toString();
+    }
+
+}
