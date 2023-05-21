@@ -1,0 +1,56 @@
+class MyCircularDeque {
+    List<Integer> deque;
+    int len;
+    public MyCircularDeque(int k) {
+        deque=new ArrayList<>(k);
+        len=k;
+    }
+    
+    public boolean insertFront(int value) {
+        if(!this.isFull())
+        {
+            deque.add(0,value);
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean insertLast(int value) {
+     if(!this.isFull())
+        {
+            deque.add(value);
+            return true;
+        }
+        return false;   
+    }
+    
+    public boolean deleteFront() {
+        if(this.isEmpty()) return false;
+        deque.remove(0);
+        return true;
+    }
+    
+    public boolean deleteLast() {
+        if(this.isEmpty()) return false;
+        deque.remove(deque.size()-1);
+        return true;
+    }
+    
+    public int getFront() {
+        if(this.isEmpty()) return -1;
+        return deque.get(0);
+    }
+    
+    public int getRear() {
+        if(this.isEmpty()) return -1;
+        return deque.get(deque.size()-1);
+    }
+    
+    public boolean isEmpty() {
+        return deque.size()==0;
+    }
+    
+    public boolean isFull() {
+        return deque.size()==len;
+    }
+}
