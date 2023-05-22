@@ -1,0 +1,43 @@
+class FrontMiddleBackQueue {
+    List<Integer> hs;
+
+    public FrontMiddleBackQueue() {
+        hs = new ArrayList<>();
+    }
+    
+    public void pushFront(int val) {
+        hs.add(0, val);
+    }
+    
+    public void pushMiddle(int val) {
+        int mid = hs.size()/2;
+        hs.add(mid, val);
+    }
+    
+    public void pushBack(int val) {
+        hs.add(hs.size(), val);
+    }
+    
+    public int popFront() {
+        return hs.isEmpty() ? -1: hs.remove(0);
+    }
+    
+    public int popMiddle() {
+        return hs.isEmpty() ? -1: hs.remove((hs.size()-1)/2);
+    }
+    
+    public int popBack() {
+       return hs.isEmpty() ? -1 : hs.remove(hs.size() -1); 
+    }
+}
+
+/**
+ * Your FrontMiddleBackQueue object will be instantiated and called as such:
+ * FrontMiddleBackQueue obj = new FrontMiddleBackQueue();
+ * obj.pushFront(val);
+ * obj.pushMiddle(val);
+ * obj.pushBack(val);
+ * int param_4 = obj.popFront();
+ * int param_5 = obj.popMiddle();
+ * int param_6 = obj.popBack();
+ */
