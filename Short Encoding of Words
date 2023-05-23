@@ -1,0 +1,15 @@
+class Solution {
+    public int minimumLengthEncoding(String[] words) {
+        HashSet<String> hs = new HashSet<>(Arrays.asList(words));
+        int ans = 0;
+        for(String word: words){
+            for(int i = 01; i < word.length(); i++){
+                hs.remove(word.substring(i));
+            }
+        }
+        for(String s: hs){
+            ans += s.length();
+        }
+        return ans + hs.size();
+    }
+}
