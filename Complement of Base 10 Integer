@@ -1,0 +1,14 @@
+class Solution {
+    public int bitwiseComplement(int n) {
+        String bin = Integer.toBinaryString(n);
+        String  ris= "";
+        for(char c : bin.toCharArray()){
+            if(c == '1'){
+                ris += "0";
+            } else {
+                ris += "1";
+            }
+        } 
+        return Integer.parseInt(ris, 2);
+    }
+}
