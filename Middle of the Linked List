@@ -1,20 +1,28 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-var reverseList = function(head, prev = null) {
-    if(head === null){
-        return prev;
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        int len = lenLIst(head);
+        for(int i = 0; i <len/2;i++){
+            head = head.next;
+        }
+        return head;
     }
-    const next = head.next;
-    head.next = prev;
-    return reverseList(next, head);
-    
-};
+    public int lenLIst(ListNode head){
+        int count = 0;
+        ListNode root = head;
+        while(root != null){
+            root = root.next;
+            count++;
+        }
+        return count;
+    }
+}
