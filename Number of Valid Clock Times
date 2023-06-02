@@ -1,0 +1,41 @@
+char h1=time.charAt(0);
+        char h2=time.charAt(1);
+        
+        char m1=time.charAt(3);
+        char m2=time.charAt(4);
+        
+        int res1=1;
+        if(h1=='?' && h2=='?'){
+            res1=24;
+        }
+        else if(h1=='?'){
+            int val=Character.getNumericValue(h2);
+            if(val<4){
+                res1=3;
+            }else{
+                res1=2;
+            }
+        }
+        else if(h2=='?'){
+            int val=Character.getNumericValue(h1);
+            if(val==2){
+                res1=4;
+            }
+            else{
+                res1=10;
+            }  
+        }
+
+        int res2=1;
+        if(m1=='?' && m2=='?'){
+            res2=60;
+        }
+        else if(m1=='?'){
+            res2=6;
+        }
+        else if(m2=='?'){
+            res2=10;
+        }
+
+        return res1*res2;
+    }
