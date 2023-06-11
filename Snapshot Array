@@ -1,0 +1,50 @@
+class SnapshotArray {
+    //CREATE AN ARRAY OF HASHMAPS OF SIZE EQUAL TO ARRAY LENGTH 
+    HashMap<Integer,Integer>[] map;
+    
+    //snapshot id
+    int sid=0;
+   
+    
+    public SnapshotArray(int length) {
+        map=new HashMap[length];
+        
+        // Right noew map array has null so initialize hashmaps in map array
+        for(int i=0;i<length;i++){
+            map[i]=new HashMap<>();
+        }
+    }
+    
+    public void set(int index, int val) {
+        //Go to ith hashmap and put the value at ith hashmap
+        HashMap<Integer,Integer> hm=map[index];
+        hm.put(sid,val);
+    }
+    
+    public int snap() {
+        sid++;
+        return sid-1;
+    }
+    
+    public int get(int index, int snap_id) {
+        
+          HashMap<Integer,Integer> hm=map[index];
+        //If snap_id doesnt exsist that means no change has been done at that snapshot
+        // so if u find the ans against snap_id return or keep decrementing snap_id
+          while(snap_id>=0){
+             if(hm.containsKey(snap_id))
+                 return hm.get(snap_id);
+              else
+                  snap_id--;
+          }
+        return 0;
+    }
+}
+
+/**
+ * Your SnapshotArray object will be instantiated and called as such:
+ * SnapshotArray obj = new SnapshotArray(length);
+ * obj.set(index,val);
+ * int param_2 = obj.snap();
+ * int param_3 = obj.get(index,snap_id);
+ */
