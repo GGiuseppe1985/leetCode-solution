@@ -1,0 +1,19 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        Set<Integer> no = new HashSet<>();
+        Set<Integer> yes = new HashSet<>();
+        for(int n : nums){
+            if (no.contains(n)) continue;
+            if(yes.contains(n)){
+                no.add(n);
+                yes.remove(n);
+            } else {
+                yes.add(n);
+            }
+        }
+        for(int ans : yes){
+            return ans;
+        }
+        return 0;
+    }
+}
