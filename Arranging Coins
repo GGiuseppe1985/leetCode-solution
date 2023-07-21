@@ -1,0 +1,17 @@
+func arrangeCoins(n int) int {
+    left := 0
+    right := n
+    for left <= right {
+        mid := left + (right  - left)/2
+        sum := mid * (mid  +1) /2
+        if sum == n {
+            return  mid
+        }
+        if n < sum {
+            right = mid  -1
+        } else {
+            left = mid +1
+        }
+    }
+    return right
+}
