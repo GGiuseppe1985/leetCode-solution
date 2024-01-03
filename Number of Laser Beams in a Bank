@@ -1,0 +1,20 @@
+class Solution {
+    public int numberOfBeams(String[] bank) {
+        int prev_count =0;
+        int ans = 0;
+        for(String s : bank){
+            int un_count = 0;
+            for(int i = 0; i < s.length();i++){
+                if(s.charAt(i) == '1'){
+                    un_count++;
+                }
+            }
+            if(un_count>0){
+                ans+= un_count *prev_count;
+                prev_count =un_count;
+            }
+
+        }
+        return ans;
+    }
+}
