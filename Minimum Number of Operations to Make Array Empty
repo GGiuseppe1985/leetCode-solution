@@ -1,0 +1,22 @@
+class Solution {
+    public int minOperations(int[] nums) {
+        Map<Integer, Integer> counts = new HashMap<>();
+        for(int n : nums){
+            counts.put(n, counts.getOrDefault(n, 0) + 1);
+        }
+        int result = 0;
+        for(int n : counts.values()){
+            if(n == 1){
+                return -1;
+            }
+            if(n % 3 == 0){
+                result += n/3;
+            } else {
+                result += (n/3)+1;
+            }
+
+
+        }
+        return result;
+     }
+}
